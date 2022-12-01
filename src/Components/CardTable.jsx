@@ -25,7 +25,7 @@ export default function CardTable() {
     useEffect(() => {
         let cards = document.querySelectorAll('.card-container')
         cards.forEach(card => card.style.order = Math.floor(Math.random() * cards.length))
-    })
+    },[tableSize])
 
 
     const fetchTimes = useRef(0)
@@ -37,8 +37,9 @@ export default function CardTable() {
                 let res = await fetch('https://www.themealdb.com/api/json/v1/1/random.php')
                 let meal = await res.json()
                 setCardImgs(current => [...current, meal.meals[0].strMealThumb])
+                console.log('async fetchImg lefutott')
             }
-            console.log('async fetchImg lefutott')
+            
         }
         fetchImg()
     },[tableSize])
