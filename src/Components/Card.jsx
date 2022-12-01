@@ -21,11 +21,11 @@ export default function Card({ cardFace, flipFunc, order }) {
         <>
             <div style={order} onClick={flipFunc} className='card-container'>
                 <img className='card-bg' src={cardBG} alt="" />
-                <img className='card-face hide' src={cardBG} alt="" />
+                <img className='card-face hide' src={cardFace} alt="" />
             </div >
             <div style={order} onClick={flipFunc} className='card-container'>
                 <img className='card-bg' src={cardBG} alt="" />
-                <img className='card-face hide' src={cardBG} alt="" />
+                <img className='card-face hide' src={cardFace} alt="" />
             </div >
         </>
 

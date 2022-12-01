@@ -11,12 +11,13 @@ export default function CardTable() {
     }
 
     const [difficulty, setDifficulty] = useState('easy')
-    let cardImgs = []
+    const [cardImgs, setCardImgs] = useState([])
+
 
     function handleSelect(e) {
         setDifficulty(e.target.value)
         fetchTimes.current = 0
-        cardImgs = []
+        setCardImgs([])
     }
 
     let tableSize = tableDifficulty[difficulty]
@@ -29,43 +30,31 @@ export default function CardTable() {
 
     const fetchTimes = useRef(0)
     useEffect(() => {
-        // console.log(cardImgs,fetchTimes.current,tableSize)
+        console.log('use effect lefutott')
         async function fetchImg() {
             while (fetchTimes.current !== tableSize / 2) {
                 fetchTimes.current += 1
                 let res = await fetch('https://www.themealdb.com/api/json/v1/1/random.php')
                 let meal = await res.json()
-                cardImgs.push(meal.meals[0])
-                console.log(cardImgs, fetchTimes.current, tableSize / 2)
+                setCardImgs(current => [...current, meal.meals[0].strMealThumb])
             }
-            // fetchTimes.current = 0
+            console.log('async fetchImg lefutott')
         }
         fetchImg()
-        // console.log(cardImgs,fetchTimes.current,tableSize)
-        // fetchTimes.current = 0
-        console.log(cardImgs)
-    })
+    },[tableSize])
 
-    // useEffect(() => {
-    //     if (isMount.current) {
-    //         isMount.current = false
-    //         fetch('https://www.themealdb.com/api/json/v1/1/random.php')
-    //             .then(res => res.json())
-    //             .then(food => setcardPicture([...cardPicture,food.meals[0]]))
-    //             // .then(food => cardPicture.push(food.meals[0]))
-    //         console.log('use effect lefut')
-    //     }
-    // })
-    // console.log(cardPicture)
+
 
     return (
         <>
             <InputSelect difficulty={difficulty} handleSelect={handleSelect} />
             <div>Difficulty: {difficulty} ({tableSize})</div>
             <div className='card-table'>
-                {[...Array(tableSize / 2)].map((element, index) => <Card key={index} />)}
+                {[...Array(tableSize / 2)].map((element, index) => <Card key={index} cardFace={`${cardImgs[index]}`} />)}
             </div>
 
         </>
     )
 }
+
+//cardFace={`${cardImgs[index].strMealThumb}`} 
