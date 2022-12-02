@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/react-memory/static/css/main.b8848204.css",
+    "main.js": "/react-memory/static/js/main.d6f4d0de.js",
+    "static/media/cardbg.jpg": "/react-memory/static/media/cardbg.7c9c9c68776f25497f0d.jpg",
+    "index.html": "/react-memory/index.html",
+    "main.b8848204.css.map": "/react-memory/static/css/main.b8848204.css.map",
+    "main.d6f4d0de.js.map": "/react-memory/static/js/main.d6f4d0de.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b8848204.css",
+    "static/js/main.d6f4d0de.js"
+  ]
+}
