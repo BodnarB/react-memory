@@ -17,10 +17,11 @@ export default function CardTable() {
     let firstCard = null
 
     function handleSelect(e) {
+        resetCards()
         setDifficulty(e.target.value)
         fetchTimes.current = 0
         setCardImgs([])
-        resetCards()
+
     }
 
     useEffect(() => {
@@ -29,7 +30,6 @@ export default function CardTable() {
     }, [tableSize])
 
     useEffect(() => {
-        console.log('use effect fetch nelkul', fetchTimes, tableSize / 2)
         while (fetchTimes.current !== tableSize / 2) {
             fetchTimes.current += 1
             fetch('https://www.themealdb.com/api/json/v1/1/random.php')
@@ -37,7 +37,6 @@ export default function CardTable() {
                 .then(meal => {
                     setCardImgs(prevImgs => [...prevImgs, meal.meals[0].strMealThumb])
                 })
-            console.log('fetch lefut')
         }
     }, [tableSize])
 
@@ -45,6 +44,7 @@ export default function CardTable() {
         let foundCards = document.querySelectorAll('.found')
         foundCards.forEach(card => card.classList.toggle('hide'))
         foundCards.forEach(card => card.classList.remove('found'))
+        currentCards.forEach(card => card.classList.toggle('hide'))
     }
 
     function flipCard(e) {
@@ -68,11 +68,9 @@ export default function CardTable() {
         }
     }
 
-
     return (
         <>
-            <InputSelect difficulty={difficulty} handleSelect={handleSelect} />
-            <div>Difficulty: {difficulty} ({tableSize})</div>
+            <div className='info'><p>Difficulty:</p><InputSelect difficulty={difficulty} handleSelect={handleSelect} /> <p>({tableSize})</p></div>
             <div className='card-table'>
                 {[...Array(tableSize / 2)].map((element, index) => <Card key={index} cardFace={`${cardImgs[index]}`} flipFunc={flipCard} />)}
             </div>

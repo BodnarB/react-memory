@@ -1,62 +1,92 @@
+body {
+  background-color: rgb(73, 73, 73);
+  padding: 1rem 0.5rem;
+}
+
 .App {
-    user-select: none;
-    text-align: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  img {
-    max-width: 100%;
-  }
-  
-  .card-table {
-    max-width: 650px;
-    width: 80%;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: rgb(38, 38, 43);
-    background: radial-gradient(circle, rgb(134, 134, 143) 0%, rgb(34, 42, 49) 100%);
-    color: whitesmoke;
-    border-radius: 0.3rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .card-bg,
-  .card-face {
-    padding: 0.5rem;
-    width: 100px;
-    height: 100px;
-    display: block;
-    margin: 0 auto;
-    border: 1px solid rgba(255, 255, 255, 0.308);
-    border-radius: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition-duration: 0.3s;
-    overflow: hidden;
-    background-color: rgb(31, 39, 46);
-  }
-  
-  .card-container {
-    position: relative;
-    width: fit-content;
-    margin: 1rem;
-    cursor: pointer;
-    overflow: hidden;
-    transition-duration: 0.2s;
-  }
-  
-  .card-container:hover {
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
-    transition-duration: 0.2s;
-  }
-  
-  .hide {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    transition-duration: 0.3s;
-  }
+  user-select: none;
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+.card-table {
+  max-width: 650px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: rgb(38, 38, 43);
+  background: radial-gradient(circle, rgb(134, 134, 143) 0%, rgb(34, 42, 49) 100%);
+  color: whitesmoke;
+  border-radius: 0.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-bg,
+.card-face {
+  padding: 0.5rem;
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.308);
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  background-color: rgb(31, 39, 46);
+}
+
+.card-container {
+  position: relative;
+  width: fit-content;
+  margin: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition-duration: 0.2s;
+}
+
+.card-container:hover {
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+  transition-duration: 0.2s;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition-duration: 0.3s;
+}
+
+#difficulty {
+  padding: 0.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+#difficulty:hover{
+  cursor: pointer;
+}
+
+.info {
+  padding: 0.5rem 1rem;
+  background-color: rgb(32, 32, 32);
+  border-radius: 0.5rem;
+  color: whitesmoke;
+  width: fit-content;
+  margin: 0.5rem auto;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
